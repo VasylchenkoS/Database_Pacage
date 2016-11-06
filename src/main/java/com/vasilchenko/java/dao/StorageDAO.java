@@ -14,11 +14,7 @@ public interface StorageDAO {
 
     void updateIngredient(Storage ingredient);
 
-    void changeIngredientCount(Storage ingredient, long count);
-
     Storage getIngredientByName(String ingredientName);
 
     Storage getIngredientById(int id);
-
-    List<Storage> checkIngredientCount();
 }

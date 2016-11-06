@@ -32,17 +32,11 @@ public class HStorageDAO implements StorageDAO {
     public void deleteIngredientById(int ingredientId) {
         Session session = sessionFactory.getCurrentSession();
         session.delete(session.load(Storage.class, ingredientId));
-        session.flush() ;
+        session.flush();
     }
 
     @Override
     public void updateIngredient(Storage ingredient) {
-        sessionFactory.getCurrentSession().update(ingredient);
-    }
-
-    @Override
-    public void changeIngredientCount(Storage ingredient, long count) {
-        ingredient.setQuantity(count);
         sessionFactory.getCurrentSession().update(ingredient);
     }
 
@@ -57,11 +51,5 @@ public class HStorageDAO implements StorageDAO {
     @Override
     public Storage getIngredientById(int id) {
         return sessionFactory.getCurrentSession().get(Storage.class, id);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<Storage> checkIngredientCount() {
-        return sessionFactory.getCurrentSession().createQuery("select i from Storage i where i.quantity < 50").list();
     }
 }

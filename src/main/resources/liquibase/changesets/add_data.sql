@@ -85,7 +85,7 @@ INSERT INTO menu_dish(id_menu, id_dish) VALUES
   ((SELECT ID_Dish FROM Dish WHERE Name='Leaf 0,5'), (SELECT ID_Ingridient FROM Storage WHERE Ingredient='Beer')),
   ((SELECT ID_Dish FROM Dish WHERE Name='Hoegaarden 0,5'), (SELECT ID_Ingridient FROM Storage WHERE Ingredient='Beer'));
 
-INSERT INTO Ordering (ID_Employee, ID_Table, Date) VALUES (
+INSERT INTO Ordering (ID_Employee, ID_Table, Date, "state") VALUES (
   (SELECT ID_Employee FROM Employee WHERE
     position='WAITER' AND Surname='Jablonski'),
   (SELECT ID_Table FROM TableSit WHERE Number='#1'), NOW(), 'OPEN'
@@ -99,7 +99,7 @@ INSERT INTO order_dish (ID_Order, ID_Dish) VALUES
   ((SELECT id_order FROM ordering WHERE id_order = (SELECT max(id_order)FROM ordering)),
    (SELECT ID_Dish FROM Dish WHERE Name='Leaf 0,5'));
 
-INSERT INTO Ordering (ID_Employee, ID_Table, Date) VALUES (
+INSERT INTO Ordering (ID_Employee, ID_Table, Date, "state") VALUES (
   (SELECT ID_Employee FROM Employee WHERE
     position='WAITER' AND Surname='Parente'),
   (SELECT ID_Table FROM TableSit WHERE Number='#2'), NOW(), 'OPEN'
@@ -112,7 +112,7 @@ INSERT INTO order_dish (ID_Order, ID_Dish) VALUES
   ((SELECT ordering.id_order FROM ordering WHERE id_order = (SELECT max(id_order)FROM ordering)),
    (SELECT ID_Dish FROM Dish WHERE Name='Hennesy'));
 
-INSERT INTO Ordering (ID_Employee, ID_Table, Date) VALUES (
+INSERT INTO Ordering (ID_Employee, ID_Table, Date, "state") VALUES (
   (SELECT ID_Employee FROM Employee WHERE
     position='WAITER' AND Surname='Jablonski'),
   (SELECT ID_Table FROM TableSit WHERE Number='#3'), NOW(), 'CLOSED'
@@ -126,7 +126,7 @@ INSERT INTO order_dish (ID_Order, ID_Dish) VALUES
   ((SELECT id_order FROM ordering WHERE id_order = (SELECT max(id_order)FROM ordering)),
    (SELECT ID_Dish FROM Dish WHERE Name='Red Label'));
 
-INSERT INTO Ordering (ID_Employee, ID_Table, Date) VALUES (
+INSERT INTO Ordering (ID_Employee, ID_Table, Date, "state") VALUES (
   (SELECT ID_Employee FROM Employee WHERE
     position='WAITER' AND Surname='Parente'),
   (SELECT ID_Table FROM TableSit WHERE Number='#4'), NOW(), 'CLOSED'
